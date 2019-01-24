@@ -89,7 +89,7 @@ class Hero {
             }
 
         }else if(keyInput === 'down') {
-            if (this.y < this.jump * 4)
+            if (this.y < this.jump * 5)
             this.y += this.jump;
         }
     }
@@ -122,10 +122,11 @@ const bug3 = new Enemy(0, 166, 'images/enemy-bug.png', 101, 5, 100);
 const bug4 = new Enemy(0, 0, 'images/enemy-bug.png', 101, 5, 300);
 const bug5 = new Enemy(0, 83, 'images/enemy-bug.png', 101, 5, 100);
 const bug6 = new Enemy(0, 166, 'images/enemy-bug.png', 101, 5, 300);
+const bug7 = new Enemy(0, 249, 'images/enemy-bug.png', 101, 5, 700);
 
 
 const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6);
+allEnemies.push(bug1, bug2, bug3, bug4, bug5, bug6, bug7);
 
 
 
