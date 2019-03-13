@@ -31,13 +31,38 @@ var Engine = (function(global) {
     const replay = document.querySelector('.replayBttn');
 
     //  replay eventlistener
-    replay.addEventListener('click', function() {
-        // modal.style.display = 'none';
+    replay.addEventListener('click', nextLevel); 
+
+    let levelCounter = 0;
+
+    function nextLevel() {
         player.reset();
         player.winner = false;
+        level();
+        // let bug8 = new Enemy(0, 166, 'images/enemy-bug.png', 101, 5, 700);
+        // allEnemies.push(bug8);
         win.requestAnimationFrame(main);
         modal.style.display = 'none';
-    });
+    }
+     
+    let level = () => {
+        let fast = 150;
+        let howFast = [];
+        let positions = [0, 83, 166, 249];
+        let counter = 0;
+        levelCounter = levelCounter + 1;
+        let bugs = [];
+        for(enemy of allEnemies) {
+            howFast.push(enemy.speed + fast);
+        }
+        
+        for(swift of howFast) {
+            let newBug = new Enemy(0, 0, 'images/enemy-bug.png', 101, 5, swift);
+            newBug.y = positions[counter + 1] % howFast.length;
+            bugs.push(newBug);
+        }
+        allEnemies.push(bugs[levelCounter])
+    }
 
     canvas.width = 505;
     canvas.height = 689;
